@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Player_Register : MonoBehaviour {
 
-    public static Player_Register player_register;
     public int players_registered = 0;
+
     bool player_1_assigned, player_2_assigned, player_3_assigned, player_4_assigned;
+
+    public string[] player_prefixes;
     public Transform[] player_spawns;
-    public GameObject[] player_objects;
+    public GameObject player_object;
+    public Color[] player_colors;
+
+    public GameObject circle_object;
 	
 	// Update is called once per frame
 	void Update () {
@@ -33,14 +38,14 @@ public class Player_Register : MonoBehaviour {
         }
         if(Input.GetButtonDown("J3_Start") && player_3_assigned == false)
         {
-            if (Assign_Player(3))
+            if (Assign_Player(2))
             {
                 player_3_assigned = true;
             }
         }
         if(Input.GetButtonDown("J4_Start") && player_4_assigned == false)
         {
-            if (Assign_Player(2))
+            if (Assign_Player(3))
             {
                 player_4_assigned = true;
             }
@@ -50,7 +55,11 @@ public class Player_Register : MonoBehaviour {
     bool Assign_Player(int _player)
     {
         //spawn player
-        Instantiate(player_objects[_player], player_spawns[_player].position, Quaternion.identity);
+        GameObject player_inst = Instantiate(player_object, player_spawns[_player].position, Quaternion.identity) as GameObject;
+        Player_Controller player_inst_controller = player_inst.GetComponent<Player_Controller>();
+        player_inst_controller.Set_Prefix(player_prefixes[_player]);
+        player_inst_controller.Set_Color(player_colors[_player]);
+        player_inst_controller.Set_Shape(circle_object);
         players_registered++;
         return true;
     }

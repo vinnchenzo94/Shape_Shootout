@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/BaseLevel.unity
-=======
 - path: Assets/Scenes/Test_Play_Scene.unity
->>>>>>> d9d535b31022bcfff2ac852a46306427edc9a825
   isLoaded: 1
   isActive: 1
