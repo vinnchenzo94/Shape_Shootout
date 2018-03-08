@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a3f255ff0fcbf2e4dbe018cd9f4ac33a
+timeCreated: 1520519686
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DubbingStar
+  fontNames:
+  - DubbingStar
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
