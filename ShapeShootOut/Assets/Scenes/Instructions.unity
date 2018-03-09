@@ -179,7 +179,7 @@ MonoBehaviour:
 
     Right Stick = Aim
 
-    A Button / Right Bumper = Jump / Double Jump
+    A Button / Left Bumper = Jump / Double Jump
 
     Right Bumper = Shoot
 
@@ -428,6 +428,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: af133bc9f265df040abaa0be7742e3c2, type: 2}
+--- !u!1001 &1449347436
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4317056931914356, guid: 4a1578ceef2375544984d1c819679d26, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.8892972
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317056931914356, guid: 4a1578ceef2375544984d1c819679d26, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.22132222
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317056931914356, guid: 4a1578ceef2375544984d1c819679d26, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317056931914356, guid: 4a1578ceef2375544984d1c819679d26, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317056931914356, guid: 4a1578ceef2375544984d1c819679d26, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317056931914356, guid: 4a1578ceef2375544984d1c819679d26, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317056931914356, guid: 4a1578ceef2375544984d1c819679d26, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317056931914356, guid: 4a1578ceef2375544984d1c819679d26, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4a1578ceef2375544984d1c819679d26, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2031520834
 GameObject:
   m_ObjectHideFlags: 0

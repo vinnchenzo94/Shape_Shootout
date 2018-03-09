@@ -31,6 +31,7 @@ public class Shape_Weapon : MonoBehaviour {
             {
                 bullet_renderer.color = color;
             }
+            TrailRenderer trail = bullet_inst.GetComponent<TrailRenderer>();
             bullet_inst.layer = this.gameObject.layer;
             next_fire_time = Time.fixedTime + fire_delay;
         }

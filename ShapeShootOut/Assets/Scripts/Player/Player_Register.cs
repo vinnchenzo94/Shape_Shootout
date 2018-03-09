@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Register : MonoBehaviour {
 
@@ -12,13 +13,36 @@ public class Player_Register : MonoBehaviour {
     public Transform[] player_spawns;
     public GameObject player_object;
     public Color[] player_colors;
-
     public GameObject circle_object;
+    List<GameObject> players_list = new List<GameObject> ();
 	
 	// Update is called once per frame
 	void Update () {
         Monitor_Input();	
+        if(Time.fixedTime > 10)
+        {
+            Monitor_For_Win();
+        }
 	}
+
+    void Monitor_For_Win()
+    {
+        int players = 0;
+        int player_index = 0;
+        for(int i=  0; i < players_list.Count; i++)
+        {
+            if(players_list[i] != null)
+            {
+                players++;
+                player_index = i;
+            }
+        }
+        if(players == 0 || players == 1)
+        {
+            DontDestroyOnLoad(players_list[player_index]);
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
     void Monitor_Input()
     {
@@ -57,6 +81,7 @@ public class Player_Register : MonoBehaviour {
         //spawn player
         GameObject player_inst = Instantiate(player_object, player_spawns[_player].position, Quaternion.identity) as GameObject;
         player_inst.layer = LayerMask.NameToLayer(player_prefixes[_player]);
+        players_list.Add(player_inst);
         Player_Controller player_inst_controller = player_inst.GetComponent<Player_Controller>();
         player_inst_controller.Set_Prefix(player_prefixes[_player]);
         player_inst_controller.Set_Color(player_colors[_player]);
