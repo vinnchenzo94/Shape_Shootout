@@ -6,7 +6,7 @@ public class Shape_Health : MonoBehaviour {
 
     public float health;
 
-	public void Take_Health(float _amount)
+    public void Take_Health(float _amount)
     {
         health -= _amount;
         if(health <= 0)
