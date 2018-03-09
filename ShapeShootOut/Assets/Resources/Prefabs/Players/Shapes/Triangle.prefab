@@ -164,8 +164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07aed4e25563a7242b84441ff52c35f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   movement_speed: 24
   jump_force: 24
+=======
+  movement_speed: 1
+  jump_force: 8
+>>>>>>> 8521e2804d11347a865a13f843421bf69a72e9a2
   max_speed: 130
   dash_speed: 24
 --- !u!114 &114626343018422172
@@ -179,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff9d0aab24457c429f11cf6b506eb8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 100
 --- !u!212 &212052387279260130
 SpriteRenderer:
   m_ObjectHideFlags: 1
