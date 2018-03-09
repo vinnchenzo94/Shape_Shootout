@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement_speed: 15
-  jump_force: 6.5
+  jump_force: 10
   max_speed: 130
   dash_speed: 24
 --- !u!114 &114656163817814528

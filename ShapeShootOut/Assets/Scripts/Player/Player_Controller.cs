@@ -34,6 +34,12 @@ public class Player_Controller : MonoBehaviour {
             shape.transform.SetParent(this.transform);
             shape.layer = this.gameObject.layer;
             movement = shape.GetComponent<Shape_Movement>();
+            TrailRenderer shape_renderer = shape.gameObject.GetComponent<TrailRenderer>();
+            if (shape_renderer != null)
+            {
+                shape_renderer.startColor = color;
+                shape_renderer.endColor = color;
+            }
 
             if (movement != null)
             {
