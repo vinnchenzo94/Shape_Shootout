@@ -10,7 +10,6 @@ public class Player_Controller : MonoBehaviour {
     Shape_Movement movement;
     Shape_Weapon weapon;
     Rigidbody2D player_rigidbody;
-    Vector3 target;
 
     private void Start()
     {
@@ -40,6 +39,10 @@ public class Player_Controller : MonoBehaviour {
             {
                 movement.Activate();
                 weapon = movement.GetComponentInChildren<Shape_Weapon>();
+                if(weapon != null)
+                {
+                    weapon.gameObject.layer = this.gameObject.layer;
+                }
             }
             else
             {

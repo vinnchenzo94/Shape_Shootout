@@ -25,7 +25,7 @@ public class Shape_Weapon : MonoBehaviour {
         if (Input.GetButton(_prefix + "_RBump") && Time.fixedTime > next_fire_time && bullet != null && fire_point != null)
         {
             GameObject bullet_inst = Instantiate(bullet, fire_point.position, fire_point.rotation);
-            bullet_inst.layer = LayerMask.NameToLayer(_prefix);
+            bullet_inst.layer = this.gameObject.layer;
             next_fire_time = Time.fixedTime + fire_delay;
         }
     }

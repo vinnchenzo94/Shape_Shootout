@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour {
 
+    public GameObject explosion;
+    public bool explode;
     public float damage, move_speed;
     Rigidbody2D bullet_rigidbody;
 
@@ -14,7 +16,7 @@ public class Bullet : MonoBehaviour {
         Activate(this.transform.right);
 	}
 
-    public void Activate(Vector3 _direction)
+    public virtual void Activate(Vector3 _direction)
     {
         if(bullet_rigidbody == null)
         {
@@ -29,7 +31,7 @@ public class Bullet : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Shape_Health health = collision.gameObject.GetComponent<Shape_Health>();
+        Shape_Health health = collision.gameObject.transform.root.GetComponentInChildren<Shape_Health>();
         if(health != null)
         {
             health.Take_Health(damage);

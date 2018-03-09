@@ -51,7 +51,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1674894188847122}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1a5b508adfa5c6246aebbd8463ee29df, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -69,8 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07aed4e25563a7242b84441ff52c35f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement_speed: 7
-  jump_force: 8
+  movement_speed: 15
+  jump_force: 6.5
   max_speed: 130
   dash_speed: 24
 --- !u!114 &114656163817814528
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff9d0aab24457c429f11cf6b506eb8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 500
 --- !u!212 &212906877698643346
 SpriteRenderer:
   m_ObjectHideFlags: 1
