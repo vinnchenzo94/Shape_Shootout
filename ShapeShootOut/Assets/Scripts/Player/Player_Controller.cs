@@ -42,6 +42,7 @@ public class Player_Controller : MonoBehaviour {
                 if(weapon != null)
                 {
                     weapon.gameObject.layer = this.gameObject.layer;
+                    weapon.color = color;
                 }
             }
             else
@@ -49,10 +50,13 @@ public class Player_Controller : MonoBehaviour {
                 Debug.Log("Movement in " + this.transform.name + "." + this.name + " is null");
             }
 
-            SpriteRenderer shape_renderer = shape.GetComponent<SpriteRenderer>();
-            if(shape_renderer != null)
+            SpriteRenderer[] shape_renderers = shape.GetComponentsInChildren<SpriteRenderer>();
+            for (int i = 0; i < shape_renderers.Length; i++)
             {
-                shape_renderer.color = color;
+                if (shape_renderers[i] != null)
+                {
+                    shape_renderers[i].color = color;
+                }
             }
         }
     }

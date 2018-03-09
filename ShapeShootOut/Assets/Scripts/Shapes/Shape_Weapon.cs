@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shape_Weapon : MonoBehaviour {
 
+    public Color color;
     public GameObject bullet;
     public Transform fire_point;
     Vector3 target = Vector3.zero;
@@ -25,6 +26,11 @@ public class Shape_Weapon : MonoBehaviour {
         if (Input.GetButton(_prefix + "_RBump") && Time.fixedTime > next_fire_time && bullet != null && fire_point != null)
         {
             GameObject bullet_inst = Instantiate(bullet, fire_point.position, fire_point.rotation);
+            SpriteRenderer bullet_renderer = bullet_inst.GetComponentInChildren<SpriteRenderer>();
+            if(bullet_renderer != null)
+            {
+                bullet_renderer.color = color;
+            }
             bullet_inst.layer = this.gameObject.layer;
             next_fire_time = Time.fixedTime + fire_delay;
         }
