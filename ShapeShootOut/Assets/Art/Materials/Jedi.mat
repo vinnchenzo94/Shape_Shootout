@@ -79,7 +79,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _InvFade: 1.26
-    - _MKGlowPower: 0.24
+    - _MKGlowPower: 0.64
     - _MKGlowTexStrength: 10
     - _Metallic: 0
     - _Mode: 0
