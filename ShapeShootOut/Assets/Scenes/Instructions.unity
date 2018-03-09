@@ -181,7 +181,7 @@ MonoBehaviour:
 
     A Button = Jump
 
-    Right Trigger = Shoot
+    Right Bumper = Shoot
 
     Start = Pause'
 --- !u!222 &141546971
