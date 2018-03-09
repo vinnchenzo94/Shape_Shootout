@@ -22,7 +22,7 @@ public class Shape_Weapon : MonoBehaviour {
 
     public virtual void Fire(string _prefix)
     {
-        if(Input.GetAxisRaw(_prefix + "_RTrig") > 0 && Time.fixedTime > next_fire_time && bullet != null && fire_point != null)
+        if (Input.GetButton(_prefix + "_RBump") && Time.fixedTime > next_fire_time && bullet != null && fire_point != null)
         {
             GameObject bullet_inst = Instantiate(bullet, fire_point.position, fire_point.rotation);
             bullet_inst.layer = LayerMask.NameToLayer(_prefix);

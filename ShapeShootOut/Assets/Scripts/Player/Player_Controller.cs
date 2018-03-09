@@ -10,6 +10,7 @@ public class Player_Controller : MonoBehaviour {
     Shape_Movement movement;
     Shape_Weapon weapon;
     Rigidbody2D player_rigidbody;
+    Vector3 target;
 
     private void Start()
     {
@@ -85,6 +86,10 @@ public class Player_Controller : MonoBehaviour {
         {
             Set_Shape(pickup.Get_Shape());
             Destroy(pickup.gameObject);
+        }
+        else
+        {
+            movement.On_Parent_Collision(collision);
         }
     }
 }

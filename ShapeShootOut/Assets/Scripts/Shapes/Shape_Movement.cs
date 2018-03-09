@@ -9,6 +9,7 @@ public class Shape_Movement : MonoBehaviour {
     Rigidbody2D shape_rigidbody;
     int num_jumps = 0;
     bool dashed = false;
+    Vector3 target;
 	
     public void Activate()
     {
@@ -22,6 +23,7 @@ public class Shape_Movement : MonoBehaviour {
         {
             float y = shape_rigidbody.velocity.y;
             shape_rigidbody.velocity = new Vector3(x * movement_speed, y, 0);
+            //shape_rigidbody.AddForce(new Vector3(x * movement_speed, 0, 0));
         }
     }
 
@@ -29,7 +31,6 @@ public class Shape_Movement : MonoBehaviour {
     {
         if((Input.GetButtonDown(_prefix + "_A") || Input.GetButtonDown(_prefix + "_LBump"))  && shape_rigidbody != null && num_jumps < 2)
         {
-            print("BUMP");
             Vector3 vel = shape_rigidbody.velocity;
             vel.y = 0;
             shape_rigidbody.velocity = vel;
@@ -48,7 +49,7 @@ public class Shape_Movement : MonoBehaviour {
         }*/
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void On_Parent_Collision(Collision2D _collision)
     {
         num_jumps = 0;
         dashed = false;
