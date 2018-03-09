@@ -8,6 +8,7 @@ public class Player_Controller : MonoBehaviour {
     Color color;
     GameObject shape;
     Shape_Movement movement;
+    Shape_Weapon weapon;
     Rigidbody2D player_rigidbody;
 
     private void Start()
@@ -28,23 +29,28 @@ public class Player_Controller : MonoBehaviour {
             movement = null;
         }
         shape = Instantiate(_shape, this.transform.position, Quaternion.identity) as GameObject;
-        shape.transform.SetParent(this.transform);
-        movement = shape.GetComponent<Shape_Movement>();
+        if (shape != null)
+        {
+            shape.transform.SetParent(this.transform);
+            shape.layer = this.gameObject.layer;
+            movement = shape.GetComponent<Shape_Movement>();
 
-        if (movement != null)
-        {
-            movement.Activate();
-        }
-        else
-        {
-            Debug.Log("Movement in " + this.transform.name + "." + this.name + " is null");
-        }
+            if (movement != null)
+            {
+                movement.Activate();
+                weapon = movement.GetComponentInChildren<Shape_Weapon>();
+            }
+            else
+            {
+                Debug.Log("Movement in " + this.transform.name + "." + this.name + " is null");
+            }
 
-        SpriteRenderer[] shape_renderers = shape.GetComponentsInChildren<SpriteRenderer>();
-        for(int i = 0;i  < shape_renderers.Length; i++)
-        {
-            shape_renderers[i].color = color;
-        }        
+            SpriteRenderer shape_renderer = shape.GetComponent<SpriteRenderer>();
+            if(shape_renderer != null)
+            {
+                shape_renderer.color = color;
+            }
+        }
     }
 
     public void Set_Color(Color _color)
@@ -59,15 +65,26 @@ public class Player_Controller : MonoBehaviour {
 
     void Handle_User_Input()
     {
-        if(movement != null)
+        if (movement != null)
         {
             movement.Move(prefix);
             movement.Jump(prefix);
+            movement.Dash(prefix);
         }
-        else
+        if (weapon != null)
         {
-            print("MOVE IS NULl");
+            weapon.Rotate_Weapon(prefix);
+            weapon.Fire(prefix);
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Shape_Pickup pickup = collision.gameObject.GetComponent<Shape_Pickup>();
+        if(pickup != null)
+        {
+            Set_Shape(pickup.Get_Shape());
+            Destroy(pickup.gameObject);
+        }
+    }
 }

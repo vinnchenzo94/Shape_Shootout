@@ -56,6 +56,7 @@ public class Player_Register : MonoBehaviour {
     {
         //spawn player
         GameObject player_inst = Instantiate(player_object, player_spawns[_player].position, Quaternion.identity) as GameObject;
+        player_inst.layer = LayerMask.NameToLayer(player_prefixes[_player]);
         Player_Controller player_inst_controller = player_inst.GetComponent<Player_Controller>();
         player_inst_controller.Set_Prefix(player_prefixes[_player]);
         player_inst_controller.Set_Color(player_colors[_player]);
